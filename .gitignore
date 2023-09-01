@@ -1,0 +1,10 @@
+venv
+logs
+.idea
+.env
+ibapi-9.76.1-py3-none-any.whl
+test.py
+backup
+*.xlsx
+records
+config

@@ -1,0 +1,139 @@
+{
+  "data": {
+    "limit": 100,
+    "offset": 0,
+    "where": [
+      {
+        "_": [
+          {
+            "$": [
+              "Type",
+              "any",
+              [
+                "story"
+              ]
+            ]
+          },
+          {
+            "and": {
+              "_": [
+                {
+                  "not": {
+                    "_": [
+                      {
+                        "$": [
+                          "Type",
+                          "any",
+                          [
+                            "story"
+                          ]
+                        ]
+                      },
+                      {
+                        "and": {
+                          "_": [
+                            {
+                              "$": [
+                                "name",
+                                "any",
+                                [
+                                  "Benzinga Insights"
+                                ]
+                              ]
+                            },
+                            {
+                              "and": {
+                                "$": [
+                                  "Title",
+                                  "phrase",
+                                  "Top"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "and": {
+                    "_": [
+                      {
+                        "$": [
+                          "Tickers",
+                          "exists"
+                        ]
+                      },
+                      {
+                        "and": {
+                          "not": {
+                            "_": [
+                              {
+                                "$": [
+                                  "Type",
+                                  "any",
+                                  []
+                                ]
+                              },
+                              {
+                                "and": {
+                                  "_": [
+                                    {
+                                      "_": [
+                                        {
+                                          "$": [
+                                            "Body",
+                                            "phrase",
+                                            "class action"
+                                          ]
+                                        },
+                                        {
+                                          "or": {
+                                            "$": [
+                                              "Title",
+                                              "phrase",
+                                              "class action"
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "fields": [
+      "Channels",
+      "PartnerURL",
+      "Quotes",
+      "Sentiment",
+      "TeaserText",
+      "Tickers",
+      "Title",
+      "Type",
+      "CreatedAt",
+      "ID",
+      "NodeID",
+      "UpdatedAt",
+      "VersionID"
+    ],
+    "id": "0",
+    "sort": {
+      "CreatedAt": -1
+    }
+  },
+  "type": "news_sub"
+}
